@@ -1,0 +1,37 @@
+@CHARSET "UTF-8";
+
+body[data-os=firefoxos] {
+    transform-style: flat;
+    position: fixed;
+    top: 0;
+}
+
+body[data-os=firefoxos] a:active {
+    background-color: rgba(0,0,0,0);
+}
+
+body[data-os=firefoxos] section > article {
+    height: calc(100% - 46px) !important;
+}
+
+body[data-os=firefoxos] section.with-footer > article {
+    height: calc(100% - 92px) !important;
+}
+
+body[data-os=firefoxos] section.fix {
+  position: fixed;
+  top: 0;
+}
+body[data-os=firefoxos] section.fix > header {
+  margin-bottom: 0;
+  transition: all .5s;
+}
+body[data-os=firefoxos] section.fix > header h1{
+  line-height: inherit;
+}
+
+body[data-os=firefoxos] .notification .window {
+    position: relative;
+    top: calc(50% - 52px);
+    left: calc(50% - 52px);
+}

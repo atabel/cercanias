@@ -1,0 +1,22 @@
+{
+  "name": "cercanias",
+  "version": "0.0.1",
+  "authors": [
+    "atabel <atabel87@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lungo": "~2.2.*",
+    "quojs": "2.3.*",
+    "bluebird": "~1.0.0"
+  }
+}

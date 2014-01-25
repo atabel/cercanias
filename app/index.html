@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Cercanias</title>
+    <meta name="description" content="">
+    <meta name="author" content="atabel87@gmail.com">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" sizes="128x128" href="images/iconffos/cercanias128.png">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="cleartype" content="on">
+
+    <!-- build:css({app,.tmp}) styles/main.all.css -->
+    <link rel="stylesheet" href="bower_components/lungo/lungo.css">
+    <link rel="stylesheet" href="bower_components/lungo/lungo.icon.css">
+    <link rel="stylesheet" href="bower_components/lungo/lungo.theme.css">
+
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+</head>
+
+<body class="app">
+
+    <section id="main-section" class="fix with-footer" data-transition="slide" data-aside="main-aside">
+        <header>
+            <h1 class="title centered">Cercanias</h1>
+            <nav class="on-right">
+                <a href="#" data-view-aside="main-aside" data-icon="menu"></a>
+            </nav>
+        </header>
+
+        <article id="zones-article" class="active list scroll">
+        </article>
+        <article id="favourite-zones-article" class="list scroll">
+        </article>
+
+        <footer class="toolbar with-labels">
+            <nav>
+                <a id="zones-tab-btn" href="#zones-article" data-view-article="zones-article" data-icon="list"></a>
+                <a id="favourite-zones-tab-btn" href="#favourite-zones-article" data-view-article="favourite-zones-article" data-icon="star"></a>
+            </nav>
+        </footer>
+    </section>
+
+    <aside id="main-aside" data-transition="right">
+        <header>
+            <h1 class="title centered">Menú</h1>
+        </header>
+        <article class="list active">
+            <ul>
+                <li>
+                    <a id="share-your-prima2-btn" href="#section-upload-prima" data-view-section="section-upload-prima" data-icon="upload">
+                        <strong>Sube a tu prima</strong>
+                        <small>Comparte una foto de un pivón</small>
+                    </a>
+                </li>
+                <li>
+                    <a id="about-btn" href="#section-about" data-view-section="section-about" data-icon="info-sign">
+                        <strong>About</strong>
+                        <small>Retoapps</small>
+                    </a>
+                </li>
+            </ul>
+        </article>
+    </aside>
+
+    <!-- build:js scripts/libs.all.js -->
+    <script src="bower_components/quojs/quo.js"></script>
+    <script src="bower_components/lungo/lungo.js"></script>
+    <script src="bower_components/bluebird/js/browser/bluebird.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js({app,.tmp}) scripts/app.all.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/app.services.js"></script>
+    <!-- endbuild -->
+
+</body>
+</html>
