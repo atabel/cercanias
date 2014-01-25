@@ -1,0 +1,11 @@
+*~
+.project
+*.sublime-workspace
+*.sublime-project
+node_modules/
+dist/
+coverage/
+.tmp/
+.sass-cache/
+app/bower_components/
+*.directory
