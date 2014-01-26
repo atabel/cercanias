@@ -21,7 +21,12 @@ App.Services = do () ->
 
     getZones = -> get URL.ZONES
 
-    getStationsInZone = (zoneId) -> get buildUrlForStationsInZone(zoneId)
+    getStationsInZone = (zoneId) ->
+        get(buildUrlForStationsInZone zoneId).then (stations) ->
+            for station in stations
+                station.zoneId = zoneId
+            stations
+
 
     getTrip = (zoneId, origStation, destStation) ->
         getTripInZone(zoneId)(origStation, destStation)

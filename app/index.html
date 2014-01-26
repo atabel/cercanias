@@ -71,12 +71,25 @@
     <!-- build:js scripts/libs.all.js -->
     <script src="bower_components/quojs/quo.js"></script>
     <script src="bower_components/lungo/lungo.js"></script>
+    <script src="bower_components/monocle/monocle.js"></script>
     <script src="bower_components/bluebird/js/browser/bluebird.js"></script>
     <!-- endbuild -->
 
     <!-- build:js({app,.tmp}) scripts/app.all.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/app.services.js"></script>
+
+    <script src="scripts/mvc/models/BaseModel.js"></script>
+    <script src="scripts/mvc/models/Zone.js"></script>
+    <script src="scripts/mvc/models/Station.js"></script>
+    <script src="scripts/mvc/views/BaseView.js"></script>
+    <script src="scripts/mvc/views/Zoneli.js"></script>
+    <script src="scripts/mvc/views/ActiveZoneHeader.js"></script>
+    <script src="scripts/mvc/views/StationFormOption.js"></script>
+    <script src="scripts/mvc/views/TripTable.js"></script>
+    <script src="scripts/mvc/controllers/ZoneListCtrl.js"></script>
+    <script src="scripts/mvc/controllers/ActiveZoneCtrl.js"></script>
+    <script src="scripts/mvc/controllers/TripCtrl.js"></script>
     <!-- endbuild -->
 
 </body>

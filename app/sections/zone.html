@@ -1,0 +1,28 @@
+<section id="zone-section" data-transition="slide" class="fix">
+    <header data-back="chevron-left">
+        <h1 class="title centered"></h1>
+        <nav class="on-right box">
+            <a href="#main-menu" data-view-aside="main-menu" data-icon="menu"></a>
+        </nav>
+    </header>
+
+    <article id="zone-article" class="indented scroll active">
+        <div class="form">
+            <label>Estación de origen</label>
+
+            <select id="orig-station-select" class="custom">
+                <option value="default" selected>Estacion de origen</option>
+            </select>
+
+            <label>Estación de destino</label>
+            <select id="dest-station-select" class="custom">
+                <option value="default" selected>Estacion de destino</option>
+            </select>
+
+            <label>Día</label>
+            <input id="trip-date" type="date" class="align_right" placeholder="Hoy" value="01/01/2014">
+
+            <button class="anchor margin-top js-view-trips-btn" data-label="Ver horarios"></button>
+        </div>
+    </article>
+</section>
