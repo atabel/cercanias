@@ -39,6 +39,7 @@ class App.ActiveZoneCtrl extends Monocle.Controller
         stations = __Model.Station.inZone zone
         @fillSelectInput '#orig-station-select', stations
         @fillSelectInput '#dest-station-select', stations
+        @tripDate.val moment().format('YYYY-MM-DD')
 
     fillSelectInput: (container, stations) ->
         first = true

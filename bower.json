@@ -17,6 +17,8 @@
   "dependencies": {
     "lungo": "~2.2.*",
     "quojs": "2.3.*",
-    "bluebird": "~1.0.0"
+    "bluebird": "~1.0.0",
+    "moment": "~2.5.1",
+    "monocle": "~1.0.4"
   }
 }
