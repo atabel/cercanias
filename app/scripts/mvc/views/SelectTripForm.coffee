@@ -12,5 +12,5 @@ class __View.SelectTripForm extends __View.BaseView
     onViewTrips: =>
         orig = @origStationSelect.val()
         dest = @destStationSelect.val()
-        date = @tripDate.val()
-        @url 'trip/from', orig, 'to', dest
+        date = moment(@tripDate.val()).format 'YYYYMMDD'
+        @url 'trip/from', orig, 'to', dest, date

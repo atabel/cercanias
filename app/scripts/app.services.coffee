@@ -29,12 +29,12 @@ App.Services = do () ->
 
 
     getTrip = (zoneId, origStation, destStation) ->
-        getTripInZone(zoneId)(origStation, destStation)
+        getTripInZone(zoneId)(origStation, destStation, date)
 
     getTripInZone = (zoneId) ->
         zoneUrl = buildUrlForTripInZone zoneId
-        (origStation, destStation) ->
-            get zoneUrl + buildTripQuery(origStation, destStation)
+        (origStation, destStation, date) ->
+            get zoneUrl + buildTripQuery(origStation, destStation), date: date
 
     {
         getZones : getZones

@@ -6,13 +6,13 @@ class App.TripCtrl extends Monocle.Controller
     constructor: ->
         super
         @routes
-            "trip/from/:orig/to/:dest" : @onViewTrip
+            "trip/from/:orig/to/:dest/:date" : @onViewTrip
         Monocle.Route.listen()
 
     onViewTrip: (params) =>
         getTrip = App.Services.getTripInZone __Model.Zone.getActive().id
         Lungo.Notification.show()
-        getTrip(params.orig, params.dest).then (trips) =>
+        getTrip(params.orig, params.dest, params.date).then (trips) =>
             Lungo.Router.section 'trip-section'
             @renderTrips trips
             @renderHeader __Model.Station.findBy('id', params.orig), __Model.Station.findBy('id', params.dest)
