@@ -13,4 +13,5 @@ class __View.SelectTripForm extends __View.BaseView
         orig = @origStationSelect.val()
         dest = @destStationSelect.val()
         date = moment(@tripDate.val()).format 'YYYYMMDD'
-        @url 'trip/from', orig, 'to', dest, date
+        if orig isnt 'default' and dest isnt 'default'
+            @url 'trip/from', orig, 'to', dest, date

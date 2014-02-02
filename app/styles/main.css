@@ -43,6 +43,12 @@ header .title {
   padding: 0 0.5em;
 }
 
+.app .form input,
+.app .form select {
+  padding: 0.5em;
+  background: white;
+}
+
 table {
   margin: 0;
   width: 100%;

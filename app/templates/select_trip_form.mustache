@@ -2,17 +2,17 @@
     <label>Estación de origen</label>
 
     <select id="orig-station-select" class="custom">
-        <option value="default" selected>Estación de origen</option>
+        <option value="default" selected disabled>Estación de origen</option>
         {{#stations}}
-            <option value="{{id}}" {{#selected}}selected{{/selected}}>{{name}}</option>
+            <option value="{{id}}">{{name}}</option>
         {{/stations}}
     </select>
 
     <label>Estación de destino</label>
     <select id="dest-station-select" class="custom">
-        <option value="default" selected>Estación de destino</option>
+        <option value="default" selected disabled>Estación de destino</option>
         {{#stations}}
-            <option value="{{id}}" {{#selected}}selected{{/selected}}>{{name}}</option>
+            <option value="{{id}}">{{name}}</option>
         {{/stations}}
     </select>
 
