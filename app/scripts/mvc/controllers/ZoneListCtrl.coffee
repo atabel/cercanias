@@ -27,9 +27,7 @@ class App.ZoneListCtrl extends Monocle.Controller
 
 
     updateZonesLst: (zones, container) ->
-        first = true
-        for uid, zone of zones
+        Monocle.Dom(container).html ''
+        for zone in zones
             view = new __View.Zoneli model: zone, container: container
-            method = (if first then 'html' else 'append')
-            view[method] zone
-            first = false
+            view.append zone
