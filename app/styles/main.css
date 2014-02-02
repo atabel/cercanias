@@ -50,6 +50,7 @@ table {
 }
 table td, th {
   padding: 0.5em 0.5em;
+  vertical-align: middle;
 }
 table th, td.highlight {
   font-weight: bold;
@@ -71,23 +72,6 @@ table td.highlight {
   background-color: #c22fe3 !important;
   color: #fff;
 }
-
-/*table {
-  background: #fff;
-  color: #34495e;
-  border: 0.1em solid #c4d2df;
-}
-table tr:nth-child(even) td {
-  background-color: #f3f6f9;
-}
-table th {
-  background-color: #c4d2df;
-  color: #fff;
-}
-table td.highlight {
-  background-color: #3498db !important;
-  color: #fff;
-}*/
 
 header span.arrow {
   padding: 0 0.5em;
