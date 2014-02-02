@@ -7,7 +7,6 @@ class __Model.Zone extends __Model.BaseModel
         @select (zone) -> !!zone.favourite
 
     @setActive: (zone) ->
-        console.log 'activating zone', zone
         @_active = zone
         zone.trigger 'active'
 

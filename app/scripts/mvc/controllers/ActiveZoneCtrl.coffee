@@ -5,46 +5,32 @@ class App.ActiveZoneCtrl extends Monocle.Controller
 
     events:
         'tap .js-add-to-fav-btn' : 'onAddToFav'
-        'tap .js-view-trips-btn' : 'onViewTrips'
-
-    elements:
-        '#orig-station-select' : 'origStationSelect'
-        '#dest-station-select' : 'destStationSelect'
-        '#trip-date' : 'tripDate'
 
     constructor: ->
         super
-        __Model.Zone.bind 'update', @bindZoneChange
         __Model.Zone.bind 'active', @refreshActive
+        __Model.Zone.bind 'change', @onZoneChange
 
-    bindZoneChange: (zone) =>
+    onZoneChange: (zone) =>
         if zone.isActive()
             @refreshHeader zone
 
     onAddToFav: ->
         __Model.Zone.getActive().toggleFavourite()
 
-    onViewTrips: =>
-        orig = @origStationSelect.val()
-        dest = @destStationSelect.val()
-        date = @tripDate.val()
-        @url 'trip/from', orig, 'to', dest
+    refreshActive: (zone) =>
+        @refreshHeader zone
+        stations = __Model.Station.inZone zone
+        @refreshForm stations
 
     refreshHeader: (zone) =>
         view = new __View.ActiveZoneHeader model: zone, container: '#zone-section header'
         view.html zone
 
-    refreshActive: (zone) =>
-        @refreshHeader zone
-        stations = __Model.Station.inZone zone
-        @fillSelectInput '#orig-station-select', stations
-        @fillSelectInput '#dest-station-select', stations
-        @tripDate.val moment().format('YYYY-MM-DD')
-
-    fillSelectInput: (container, stations) ->
-        first = true
-        for station in stations
-            view = new __View.StationFormOption model: station, container: container
-            method = if first then 'html' else 'append'
-            view[method] station
-            first = false
+    refreshForm: (stations) ->
+        today = moment().format('YYYY-MM-DD')
+        model =
+            stations : stations
+            today : today
+        view = new __View.SelectTripForm model: model, container: '#zone-article'
+        view.html model

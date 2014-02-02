@@ -1,0 +1,25 @@
+<div class="form">
+    <label>Estación de origen</label>
+
+    <select id="orig-station-select" class="custom">
+        <option value="default" selected>Estación de origen</option>
+        {{#stations}}
+            <option value="{{id}}" {{#selected}}selected{{/selected}}>{{name}}</option>
+        {{/stations}}
+    </select>
+
+    <label>Estación de destino</label>
+    <select id="dest-station-select" class="custom">
+        <option value="default" selected>Estación de destino</option>
+        {{#stations}}
+            <option value="{{id}}" {{#selected}}selected{{/selected}}>{{name}}</option>
+        {{/stations}}
+    </select>
+
+    <label>Día</label>
+    <input id="trip-date" type="date" class="align_right" placeholder="Hoy" value="{{today}}">
+
+    <button class="anchor margin-top js-view-trips-btn" data-label="Ver horarios">
+        <abbr>Ver horarios</abbr>
+    </button>
+</div>

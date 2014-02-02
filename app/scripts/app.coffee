@@ -22,7 +22,6 @@ window.App = App = do () ->
             return Promise.all stations
         .then (stationsJson) ->
             stationsJson = Array::concat.apply [], stationsJson
-            console.error(stationsJson)
             for stationAttrs in stationsJson
                 __Model.Station.updateOrCreate stationAttrs
             __Controller.ZoneLst = new App.ZoneListCtrl '#main-section'

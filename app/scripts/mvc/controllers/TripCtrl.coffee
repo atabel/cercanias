@@ -15,11 +15,18 @@ class App.TripCtrl extends Monocle.Controller
         getTrip(params.orig, params.dest).then (trips) =>
             Lungo.Router.section 'trip-section'
             @renderTrips trips
+            @renderHeader __Model.Station.findBy('id', params.orig), __Model.Station.findBy('id', params.dest)
         .finally ->
             Lungo.Notification.hide()
 
     renderTrips: (trips) ->
-        console.error trips
         model = trips : trips
-        view = new __View.TripTable model: model, container: '#trip-section table'
+        view = new __View.TripTable model: model, container: '#trip-article'
+        view.html model
+
+    renderHeader: (origStation, destStation) ->
+        model =
+            from : origStation.name
+            to : destStation.name
+        view = new __View.TripHeader model: model, container: '#trip-section header'
         view.html model

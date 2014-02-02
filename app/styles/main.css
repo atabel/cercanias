@@ -35,3 +35,60 @@ body[data-os=firefoxos] .notification .window {
     top: calc(50% - 52px);
     left: calc(50% - 52px);
 }
+
+header .title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 0 0.5em;
+}
+
+table {
+  margin: 0;
+  width: 100%;
+  border-spacing: 0.1em;
+}
+table td, th {
+  padding: 0.5em 0.5em;
+}
+table th, td.highlight {
+  font-weight: bold;
+}
+
+table {
+  background: #fff;
+  color: #3f0f4a;
+  border: 0.1em solid #e0a7ed;
+}
+table tr:nth-child(even) td {
+  background-color: #f9edfb;
+}
+table th {
+  background-color: #e0a7ed;
+  color: #fff;
+}
+table td.highlight {
+  background-color: #c22fe3 !important;
+  color: #fff;
+}
+
+/*table {
+  background: #fff;
+  color: #34495e;
+  border: 0.1em solid #c4d2df;
+}
+table tr:nth-child(even) td {
+  background-color: #f3f6f9;
+}
+table th {
+  background-color: #c4d2df;
+  color: #fff;
+}
+table td.highlight {
+  background-color: #3498db !important;
+  color: #fff;
+}*/
+
+header span.arrow {
+  padding: 0 0.5em;
+}
