@@ -13,5 +13,10 @@ class __View.SelectTripForm extends __View.BaseView
         orig = @origStationSelect.val()
         dest = @destStationSelect.val()
         date = moment(@tripDate.val()).format 'YYYYMMDD'
-        if orig isnt 'default' and dest isnt 'default'
+        if @validateForm orig, dest, date
             @url 'trip/from', orig, 'to', dest, date
+
+    validateForm: (orig, dest, date) ->
+        (orig isnt 'default') and
+        (dest isnt 'default') and
+        (orig isnt dest)
