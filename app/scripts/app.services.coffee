@@ -5,6 +5,10 @@ App.Services = do () ->
         ZONES : DOMAIN + '/zones'
         ZONE : DOMAIN + '/zone/'
 
+    Lungo.Data.Storage =
+        persistent: Device.Storage.local,
+        session: Device.Storage.session
+
     buildUrlForStationsInZone = (zoneId) ->
         URL.ZONE + zoneId + '/stations'
 
@@ -16,7 +20,8 @@ App.Services = do () ->
 
     get = (url, data = {}) ->
         new Promise((resolve, reject) ->
-            Lungo.Service.get url, data, resolve
+            $$.ajaxSettings.error = reject
+            Lungo.Service.cache url, data, '1 day', resolve
         )
 
     getZones = -> get URL.ZONES

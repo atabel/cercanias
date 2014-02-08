@@ -19,6 +19,7 @@
     "quojs": "2.3.*",
     "bluebird": "~1.0.0",
     "moment": "~2.5.1",
-    "monocle": "~1.0.4"
+    "monocle": "~1.0.4",
+    "device.js": "~0.0.3"
   }
 }
