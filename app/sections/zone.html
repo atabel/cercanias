@@ -1,4 +1,4 @@
-<section id="zone-section" data-transition="slide" class="fix">
+<section id="zone-section" data-transition="slide" class="fix with-footer">
     <header data-back="chevron-left">
         <h1 class="title centered"></h1>
         <nav class="on-right box">
@@ -9,4 +9,15 @@
     <article id="zone-article" class="indented scroll active">
 
     </article>
+    <article id="zone-map-article">
+        <div style="width: 100%; height:100%">
+            <canvas id="map-canvas" style="width: 100%; height: 100%"></canvas>
+        </div>
+    </article>
+    <footer class="toolbar with-labels">
+        <nav>
+            <a href="#zone-article" data-view-article="zone-article" data-icon="time"></a>
+            <a href="#zone-map-article" data-view-article="zone-map-article" data-icon="map-marker"></a>
+        </nav>
+    </footer>
 </section>

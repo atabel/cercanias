@@ -1,6 +1,7 @@
 class __Model.Zone extends __Model.BaseModel
     @fields 'name',
             'id',
+            'map',
             'favourite'
 
     @favourites: ->
