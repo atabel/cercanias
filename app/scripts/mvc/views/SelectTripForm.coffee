@@ -17,6 +17,4 @@ class __View.SelectTripForm extends __View.BaseView
             @url 'trip/from', orig, 'to', dest, date
 
     validateForm: (orig, dest, date) ->
-        (orig isnt 'default') and
-        (dest isnt 'default') and
-        (orig isnt dest)
+        orig and dest and (orig isnt dest)
