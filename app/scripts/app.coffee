@@ -14,6 +14,7 @@ window.App = App = do () ->
         Lungo.ready initApp
 
     initApp = ->
+        Lungo.Notification.show()
         App.Services.getZones().then (zonesJson) ->
             for zoneAttrs in zonesJson
                 __Model.Zone.updateOrCreate zoneAttrs
@@ -27,6 +28,8 @@ window.App = App = do () ->
             __Controller.ZoneLst = new App.ZoneListCtrl '#main-section'
             __Controller.ActiveZone = new App.ActiveZoneCtrl '#zone-section'
             __Controller.Trip = new App.TripCtrl '#trip-section'
+        .finally ->
+            Lungo.Notification.hide()
 
     {
         init : init
