@@ -40,7 +40,7 @@ class App.ActiveZoneCtrl extends Monocle.Controller
         view.html zone
 
     refreshMap: (zone) ->
-        new ImgTouchCanvas canvas: @mapCanvas[0], path: zone.map
+        new ImgTouchCanvas canvas: @mapCanvas[0], path: "/images/map/#{zone.id}.png"
 
     refreshForm: (stations) ->
         model =
