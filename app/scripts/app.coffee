@@ -10,6 +10,10 @@ window.App = App = do () ->
                 '/sections/zone.html'
                 '/sections/trip.html'
             ]
+        #Hack to prevent premature hide of loading spiner
+        oldHide = Lungo.Notification.hide
+        Lungo.Notification.hide = (args...) ->
+            setTimeout oldHide.bind(Lungo.Notification, args), 500
 
         Lungo.ready initApp
 
