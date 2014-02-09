@@ -8,8 +8,9 @@ class __Model.Zone extends __Model.BaseModel
         @select (zone) -> !!zone.favourite
 
     @setActive: (zone) ->
+        oldActive = @getActive()
         @_active = zone
-        zone.trigger 'active'
+        zone.trigger 'active', oldActive
 
     @getActive: () ->
         @_active

@@ -15,9 +15,10 @@ class App.ActiveZoneCtrl extends Monocle.Controller
         __Model.Zone.bind 'active', @onZoneActivates
         __Model.Zone.bind 'change', @onZoneChange
 
-    onZoneActivates: (zone) =>
-        @refreshActive zone
+    onZoneActivates: (zone, oldZone) =>
         Lungo.Router.article 'zone-section', 'zone-article'
+        if not zone.equal oldZone
+            @refreshActive zone
 
     onZoneChange: (zone) =>
         if zone.isActive()
