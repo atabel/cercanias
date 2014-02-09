@@ -31,6 +31,7 @@ window.App = App = do () ->
                 __Model.Station.updateOrCreate stationAttrs
             __Controller.ZoneLst = new App.ZoneListCtrl '#main-section'
             __Controller.ActiveZone = new App.ActiveZoneCtrl '#zone-section'
+            __Controller.ActiveZoneMap = new App.ActiveZoneMapCtrl '#zone-section'
             __Controller.Trip = new App.TripCtrl '#trip-section'
         .finally ->
             Lungo.Notification.hide()

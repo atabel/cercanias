@@ -3,12 +3,8 @@ App = window.App
 
 class App.ActiveZoneCtrl extends Monocle.Controller
 
-    elements:
-        '#map-canvas' : 'mapCanvas'
-
     events:
         'tap .js-add-to-fav-btn' : 'onAddToFav'
-        'load #zone-map-article' : 'onLoadMapArticle'
 
     constructor: ->
         super
@@ -27,9 +23,6 @@ class App.ActiveZoneCtrl extends Monocle.Controller
     onAddToFav: ->
         __Model.Zone.getActive().toggleFavourite()
 
-    onLoadMapArticle: =>
-        @refreshMap __Model.Zone.getActive()
-
     refreshActive: (zone) ->
         @refreshHeader zone
         stations = __Model.Station.inZone zone
@@ -38,9 +31,6 @@ class App.ActiveZoneCtrl extends Monocle.Controller
     refreshHeader: (zone) ->
         view = new __View.ActiveZoneHeader model: zone, container: '#zone-section header'
         view.html zone
-
-    refreshMap: (zone) ->
-        new ImgTouchCanvas canvas: @mapCanvas[0], path: "/images/map/#{zone.id}.png"
 
     refreshForm: (stations) ->
         model =
