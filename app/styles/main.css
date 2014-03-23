@@ -1,36 +1,36 @@
 @CHARSET "UTF-8";
 
-body[data-os=firefoxos] {
+body.firefox {
     transform-style: flat;
     position: fixed;
     top: 0;
 }
 
-body[data-os=firefoxos] a:active {
+body.firefox a:active {
     background-color: rgba(0,0,0,0);
 }
 
-body[data-os=firefoxos] section > article {
+body.firefox section > article {
     height: calc(100% - 46px) !important;
 }
 
-body[data-os=firefoxos] section.with-footer > article {
+body.firefox section.with-footer > article {
     height: calc(100% - 92px) !important;
 }
 
-body[data-os=firefoxos] section.fix {
+body.firefox section.fix {
   position: fixed;
   top: 0;
 }
-body[data-os=firefoxos] section.fix > header {
+body.firefox section.fix > header {
   margin-bottom: 0;
   transition: all .5s;
 }
-body[data-os=firefoxos] section.fix > header h1{
+body.firefox section.fix > header h1{
   line-height: inherit;
 }
 
-body[data-os=firefoxos] .notification .window {
+body.firefox .notification .window {
     position: relative;
     top: calc(50% - 52px);
     left: calc(50% - 52px);

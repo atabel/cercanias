@@ -19,10 +19,9 @@ App.Services = do () ->
         "/from/#{origStation}/to/#{destStation}"
 
     get = (url, data = {}) ->
-        new Promise((resolve, reject) ->
+        new Promise (resolve, reject) ->
             $$.ajaxSettings.error = reject
-            Lungo.Service.cache url, data, '1 day', resolve
-        )
+            Lungo.Service.get url, data, resolve
 
     getZones = -> get URL.ZONES
 

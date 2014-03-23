@@ -20,6 +20,7 @@
     "bluebird": "~1.0.0",
     "moment": "~2.5.1",
     "monocle": "~1.0.4",
-    "device.js": "~0.0.3"
+    "device.js": "~0.0.3",
+    "bowser": "~0.6.0"
   }
 }

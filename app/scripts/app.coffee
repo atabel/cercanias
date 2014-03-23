@@ -2,6 +2,8 @@
 window.App = App = do () ->
 
     init = ->
+        if bowser.firefox
+            $$('body').addClass 'firefox'
         #Define the LungoJS Application Instance
         Lungo.init
             name : 'Cercanias'
@@ -21,6 +23,8 @@ window.App = App = do () ->
         Lungo.Notification.show()
         App.Services.getZones().then (zonesJson) ->
             for zoneAttrs in zonesJson
+                key = "zone:#{zoneAttrs.id}"
+                zoneAttrs = Lungo.Core.mix zoneAttrs, JSON.parse(localStorage.getItem(key))
                 __Model.Zone.updateOrCreate zoneAttrs
 
             stations = zonesJson.map (attrs) -> App.Services.getStationsInZone attrs.id
@@ -33,6 +37,7 @@ window.App = App = do () ->
             __Controller.ActiveZone = new App.ActiveZoneCtrl '#zone-section'
             __Controller.ActiveZoneMap = new App.ActiveZoneMapCtrl '#zone-section'
             __Controller.Trip = new App.TripCtrl '#trip-section'
+            __Controller.PersistZone = new App.PersistZoneCtrl
         .finally ->
             Lungo.Notification.hide()
 

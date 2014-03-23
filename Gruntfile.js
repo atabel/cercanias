@@ -292,7 +292,7 @@ module.exports = function (grunt) {
         compress: {
             firefox: {
                 options: {
-                  archive: 'mlpFirefoxOS.zip',
+                  archive: 'app.zip',
                   mode: 'zip'
                 },
                 files: [

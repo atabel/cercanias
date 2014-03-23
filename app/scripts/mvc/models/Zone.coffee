@@ -22,3 +22,4 @@ class __Model.Zone extends __Model.BaseModel
 
     toggleFavourite: () ->
         @updateAttributes favourite: !@favourite
+        @trigger 'favourite'

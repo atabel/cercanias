@@ -41,33 +41,32 @@ This code may be freely distributed under the MIT License
 
         this.mdown = false; //desktop drag
 
-        this.init = false;
         this.checkRequestAnimationFrame();
-        requestAnimationFrame(this.animate.bind(this));
+        this.init();
+        this.imgTexture.onload = this.draw.bind(this);
 
         this.setEventListeners();
     };
 
 
     ImgTouchCanvas.prototype = {
-        animate: function() {
+        init: function () {
             //set scale such as image cover all the canvas
-            if(!this.init) {
-                if(this.imgTexture.width) {
-                    var scaleRatio = null;
-                    if(this.canvas.clientWidth > this.canvas.clientHeight) {
-                        scaleRatio = this.canvas.clientWidth / this.imgTexture.width;
-                    }
-                    else {
-                        scaleRatio = this.canvas.clientHeight / this.imgTexture.height;
-                    }
-
-                    this.scale.x = scaleRatio;
-                    this.scale.y = scaleRatio;
-                    this.init = true;
+            if(this.imgTexture.width) {
+                var scaleRatio = null;
+                if(this.canvas.clientWidth > this.canvas.clientHeight) {
+                    scaleRatio = this.canvas.clientWidth / this.imgTexture.width;
                 }
-            }
+                else {
+                    scaleRatio = this.canvas.clientHeight / this.imgTexture.height;
+                }
 
+                this.scale.x = scaleRatio;
+                this.scale.y = scaleRatio;
+            }
+        },
+
+        draw: function () {
             this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
             this.context.drawImage(
@@ -75,8 +74,11 @@ This code may be freely distributed under the MIT License
                 this.position.x, this.position.y,
                 this.scale.x * this.imgTexture.width,
                 this.scale.y * this.imgTexture.height);
+        },
 
-            requestAnimationFrame(this.animate.bind(this));
+        animate: function() {
+            this.draw();
+            this.afId = requestAnimationFrame(this.animate.bind(this));
         },
 
 
@@ -179,6 +181,7 @@ This code may be freely distributed under the MIT License
         setEventListeners: function() {
             // touch
             this.canvas.addEventListener('touchstart', function(e) {
+                this.afId = requestAnimationFrame(this.animate.bind(this));
                 this.lastX          = null;
                 this.lastY          = null;
                 this.lastZoomScale  = null;
@@ -195,6 +198,10 @@ This code may be freely distributed under the MIT License
                     var relativeY = e.targetTouches[0].pageY - this.canvas.getBoundingClientRect().top;
                     this.doMove(relativeX, relativeY);
                 }
+            }.bind(this));
+
+            this.canvas.addEventListener('touchend', function(e) {
+                cancelAnimationFrame(this.afId);
             }.bind(this));
 
             if(this.desktop) {
